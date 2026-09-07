@@ -1,27 +1,41 @@
 Acolyte
 Actuator
 Adjutant
+Aegis Pylon
 Aeon of the First Dawn
 Aeonlight Colossus
+Agony Engine
 Agony-Bound Colossus
+Amalgam
+Apostate
 Archer
 Archscribe Veyla
+Armageddon
 Assembly Frame
 Assembly Rig
 Athenaeum of Ages
 Axe Warrior
 Ballista
+Ballista Turret
 Bandit
 Barricade
+Barrow Ox
 Basalt Millennium
 Battering Ram
 Blast Furnace
 Blood Imp
+Boar
 Bolt Pillar
 Bombard
+Bombardier Krast
+Bone Altar
+Bone Wall
+Bonecaller
 Bound Martyr
 Broodfiend
+Bulwark
 Burnout Battery
+Cadaverist
 Calibrated Marking
 Caltrops
 Capacitor Bank
@@ -31,115 +45,183 @@ Cascade Hammer
 Cavalry
 Centurion
 Chaplain
+Charnel Pit
+Chokewraith
 Cinderfiend
 Citadel
 Claim Charge
 Clockwind Adept
 Cocoon
 Coinscribe
+Colossus
+Condensate
 Condenser Coil
 Conduit
 Conscript
 Conscription Camp
+Contagion
 Covenant Scribe
 Crossbowman
 Crossfeed Beam
 Crusher
+Crypt
 Curse Ward
 Dart Crank
 Defensive Emplacement
 Demolition Charge
 Displaced Citizens
+Doom Herald
 Drafting Table
 Dragon Broodmother
 Drake
-Dynamo
+Dread Knight
+Dread Marshal
+Dread Monolith
+Eagle
+East Ballista
 Egg Cluster
 Embalmed Noble
+Embalming
+Ember Circle
+Ember Imp
 Engineer
 Eris
 Exchanger
+Executioner
+Executioner Lord
 Fettered Giant
 Field Medic
 Fiend
 Fire Dragon
 Fitter
 Flagellant
+Flamecaller
 Flashpan Turret
 Flywheel
 Fog Knot
+Fog Shade
+Fogbound Horror
 Foothold
-Forged Imp
+Footpad
+Galecaller
 Gholgoth the Insatiable
+Ghoul
+Giant Skeleton
 Glass Aquifer
+Gloom Shroud
 Glyphling
 Gormauth, Lord of the Toll
+Grand Requiem
 Grave Scrivener
+Grave Titan
+Gravedigger
+Gravemender
 Gravesmith
+Gravewatcher
 Grunt
 Guard
+Halberdier
 Hallmark Engine
 Harpy
+Harvest of Ages
 Hauler
 Hellbrand Fiend
+Hellgate
 Herald of What Comes
+High Confessor Vael
 Horse Archer
+Hound
+Hunter Spider
 Illuminator
 Immolation Core
 Imp
+Imp Circle
 Imperial Standard
 Infiltrator
+Inheritance
 Inkwright
+Intelligence Post
 Iron Revenant
+Ironclad
+Keeper's Double
 Kheshig
 Kiln
 Kindling Wretch
 Knight
 Krieg
-Lamb
 Lancer
+Last Rites
+Left-Facing Barricade
 Legacy Line
+Lesser Imp
 Living Barricade
 Longbowman
+Lord Marshal Krun
+Mad Escalator
+Magic Circle
 Magma Rager
 Mana Shield
 Mana Vault Shard
 Mangonel
+Marauder Chief
 Marksman
+Marrow Knight
 Maw Amalgam
 Miasma Reactor
+Miasma Wisp
 Minor Imp
 Mirrorglass Ward
+Mist Stalker
 Moloch
 Monolith of the Unborn Hour
 Mortifex
+Mourncaller
 Muster Sergeant
+Necromancer
+Necrophage
+Obelisk
 Omega Lance
+Oracle Spire
 Orc Brute
 Orc Raider
 Orc Wolf-Runner
+Ossuary Bell
 Ouroboros, End and Origin
 Outpost
+Outrider
 Overpressure Cannon
 Overwound Crusher
+Ox Behemoth
 Pactweaver
+Pale Rider
+Palisade
 Parts Depot
+Phylactery
 Piston Ram
-Piston Tower
 Pit Cleaver
 Pit Priest
+Plaguebearer
 Poison Water Supply
+Poltergeist
 Pressure Plate
 Pressure Valve
 Prism Lancer
+Pyre
 Quartermaster
 Railspike
+Rampart
+Raptor
+Rattling Husk
+Reaper
 Reaver
 Reclaimer
 Refractor
-Reshaped Demon
-Ring Cannon
+Revenant
+Rictus the Unburied
+Right-Facing Barricade
 Rising Cadence
+Road Bruiser
+Rotbeast
 Ruthless Imperialist
 Sabotage
 Salvage Mill
@@ -149,31 +231,42 @@ Schematic Engine
 Scout
 Scrap Trap
 Scrapling
+Ser Halden
 Sereth
-Shadow of %s
 Shield Battery
+Shieldbearer
 Shieldwright
 Siege Workshop
 Sin-Eater
 Siren Harpy
 Skarvyx the Carrion-Winged
+Skeletal Mage
+Skeleton
+Skirmisher
+Skull Mage
+Snake
+Snake Carcass
 Soldier
-Sparkling
 Sparkscribe
 Spearman
+Spiderling
+Spined Imp
 Spinning Blade
-Splitling
 Spore Bloater
 Spore Bud
 Spore Shambler
 Springald
 Staging Platform
+Standard Bearer
 Star-Counting Child
 Starbow Aeon
-Static Engine
 Steppe Rider
+Storm Spire
+Storm Tyrant Zael
 Stormborn Aeon
+Stormcaller
 Stormscribe
+Summoning Circle
 Supply Chain
 Surge Array
 Surveyor
@@ -181,34 +274,70 @@ Tactician
 Tally Engine
 Terminus Coil
 The Author of Hours
+The Beastmaster
+The Bone King
+The Dread Sovereign
+The Fog Herald
+The Grey Reeve
 The Hourglass Broker
+The Khan
 The Last Aeon
+The Last Oath
+The Lesser Gate
 The Long Watch
+The Matriarch
 The Orrery
+The Pale Centurion
 The Patient Vein
 The Perfected One
 The Ritualist
 The Slumbering Gate
+The Spinneret
+The Sporemother
 The Still Reservoir
 The Storm That Waits
-The Sum of All Hours
 The Tallyman
+The Thornspeaker
+The Toll-Keeper
+The Undying
+The Unmade
 The Unspent Aeon
+The Vizier
 Thorne
+Thunder Colossus
 Time Vault
 Time Wizard
+Toll Crossbowman
 Tollgate
 Tomb Chanter
+Tomb Guard
 Tomb Servant
+Tombshade Acolyte
 Training Camp
 Trebuchet
+Umbral Echo Ritual
 Vanguard
+Venomling
 Veskarn the Manifold
 Veteran Casern
 Vhorzul the Usurper
+Void Lord
+Wailing Shade
 Wall
+War Shrine
+Warcaster
+Warden
+Warden Ballista
 Warden Bow
 Warden of Hours
-Whelp
+Warden of the Silent Gate
+Weaver
+West Ballista
 Winding Engine
+Wing Circle
+Winged Imp
+Withered Sovereign
+Wolf
 Workbench
+Wraith Knight
+Zealot

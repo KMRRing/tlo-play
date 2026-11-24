@@ -92,6 +92,11 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Last Omen">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b0b0d">
 
 	</head>
 	<body>
@@ -201,6 +206,9 @@ const engine = new Engine(GODOT_CONFIG);
 		setStatusMode('progress');
 		unlockThenStart();
 	}
+	if ('serviceWorker' in navigator) {   // offline cache: see sw.js
+		navigator.serviceWorker.register('sw.js').catch(() => {});
+	}
 	const BUILD_V = '1124.1854+ead4894';
 async function _updCheck() {
 	try {
@@ -227,10 +235,24 @@ document.addEventListener('visibilitychange', () => {
 			if (retry) { document.body.onclick = () => location.reload(); }
 		};
 		const bad = () => say('nothing here', false);
+		// A home-screen copy keeps its own storage, so the key a browser tab saved is not
+		// there: it asks for the play link once and remembers it.
+		const ask = () => {
+			say('Paste your play link to finish installing.<br><br>' +
+				'<input id="lo-k" style="width:80%;font:16px system-ui;padding:8px" ' +
+				'placeholder="https://...#k=...">', false);
+			document.getElementById('lo-k').addEventListener('change', (ev) => {
+				const m = ev.target.value.match(/(?:k=)?([A-Za-z0-9_-]{20,})\s*$/);
+				if (m) { try { localStorage.setItem('lo_k', m[1]); } catch (e) {} }
+				location.reload();
+			});
+		};
+		const installed = window.navigator.standalone === true ||
+			window.matchMedia('(display-mode: standalone)').matches;
 		let k = (location.hash.match(/k=([A-Za-z0-9_-]+)/) || [])[1];
 		if (k) { try { localStorage.setItem('lo_k', k); } catch (e) {} }
 		else { try { k = localStorage.getItem('lo_k'); } catch (e) {} }
-		if (!k) { return bad(); }
+		if (!k) { return installed ? ask() : bad(); }
 		let key;
 		try {
 			const pad = '='.repeat((4 - (k.length % 4)) % 4);

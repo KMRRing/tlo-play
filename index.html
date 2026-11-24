@@ -209,6 +209,7 @@ const engine = new Engine(GODOT_CONFIG);
 	if ('serviceWorker' in navigator) {   // offline cache: see sw.js
 		navigator.serviceWorker.register('sw.js').catch(() => {});
 	}
+	const PACK_PARTS = 10;
 	const BUILD_V = '1124.1854+ead4894';
 async function _updCheck() {
 	try {
@@ -262,34 +263,65 @@ document.addEventListener('visibilitychange', () => {
 			key = await crypto.subtle.importKey('raw', raw,
 				'AES-GCM', false, ['decrypt']);
 		} catch (e) { return bad(); }
-		let plain = null;
-		let why = '';
-		for (let attempt = 0; attempt < 3 && !plain; attempt++) {
-			let whole = false;
-			try {
-				const r = await fetch('index.pck.enc?v=' + BUILD_V +
-					(attempt ? '&r=' + attempt : ''),
-					attempt ? { cache: 'reload' } : {});
-				if (!r.ok) { throw new Error('http ' + r.status); }
-				const want = Number(r.headers.get('content-length') || 0);
-				const buf = new Uint8Array(await r.arrayBuffer());
-				whole = !want || buf.length >= want;
-				if (!whole) { throw new Error('cut short'); }
-				// subarray, not slice: no second 60 MB copy on a phone
-				plain = await crypto.subtle.decrypt(
-					{ 'name': 'AES-GCM', 'iv': buf.subarray(0, 12) }, key,
-					buf.subarray(12));
-			} catch (e) {
-				if (whole && e && e.name === 'OperationError') { return bad(); }
-				why = (e && (e.message || e.name)) || 'unknown';
+		// The pack arrives in PACK_PARTS encrypted parts. Each is fetched with its own retries
+		// and kept on the phone the moment it lands, so a dropped connection costs one part
+		// and a reload carries on from where the last one stopped.
+		const PART_BYTES = 6 * 1024 * 1024 + 28;
+		const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+		let store = null;
+		try {
+			store = await caches.open('last-omen-pack');
+			for (const old of await store.keys()) {
+				if (old.url.indexOf('v=' + encodeURIComponent(BUILD_V)) < 0 &&
+						old.url.indexOf('v=' + BUILD_V) < 0) { await store.delete(old); }
 			}
+		} catch (e) { store = null; }
+		const part = async (i) => {
+			const url = 'pck/' + String(i).padStart(2, '0') + '.enc?v=' + BUILD_V;
+			let last = null;
+			for (let a = 0; a < 6; a++) {
+				try {
+					let r = store ? await store.match(url) : null;
+					const fresh = !r;
+					if (fresh) {
+						r = await fetch(url + (a ? '&r=' + a : ''), a ? { cache: 'reload' } : {});
+						if (!r.ok) { throw new Error('http ' + r.status); }
+					}
+					const buf = new Uint8Array(await r.arrayBuffer());
+					if (i < PACK_PARTS - 1 && buf.length !== PART_BYTES) {
+						throw new Error('part ' + (i + 1) + ' cut short');
+					}
+					const out = await crypto.subtle.decrypt(
+						{ 'name': 'AES-GCM', 'iv': buf.subarray(0, 12) }, key, buf.subarray(12));
+					if (fresh && store) {
+						try { await store.put(url, new Response(buf)); } catch (e) {}
+					}
+					return out;
+				} catch (e) {
+					if (e && e.name === 'OperationError') { e.wrongKey = true; throw e; }
+					last = e;
+					if (store) { try { await store.delete(url); } catch (x) {} }
+					await sleep(700 * (a + 1));
+				}
+			}
+			throw last;
+		};
+		const pieces = [];
+		try {
+			statusProgress.max = PACK_PARTS;
+			for (let i = 0; i < PACK_PARTS; i++) {
+				pieces.push(await part(i));
+				statusProgress.value = i + 1;
+			}
+		} catch (e) {
+			if (e && e.wrongKey) { return bad(); }
+			return say('The game did not finish downloading (' +
+				((e && (e.message || e.name)) || 'unknown') + '; ' + pieces.length + ' of ' +
+				PACK_PARTS + ' parts are saved).<br><br>Tap to carry on.', true);
 		}
-		if (!plain) {
-			return say('The game did not finish downloading (' + why +
-				').<br><br>Tap to try again.', true);
-		}
+		const plain = new Blob(pieces);
 		engine.startGame({
-			'mainPack': URL.createObjectURL(new Blob([plain])),
+			'mainPack': URL.createObjectURL(plain),
 			'onProgress': function (current, total) {
 				if (current > 0 && total > 0) {
 					statusProgress.value = current;

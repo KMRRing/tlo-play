@@ -1,55 +1,52 @@
-// Last Omen's offline cache. The game is a 60 MB pack plus a 35 MB engine: fetched once,
-// then served from the phone, so a launch needs no network and re-downloads nothing.
-//   the page itself  -> network first (so a new build is seen), the saved copy when offline
-//   version.json     -> network only; offline it answers "{}" and the page stays as it is
-//   the pack's parts -> left alone: the page fetches, retries and stores them itself
-//   everything else  -> cache first, refreshed in the background
-const CACHE = 'last-omen-1';
-const leaf = (url) => new URL(url).pathname.split('/').pop() || 'index.html';
+// Last Omen without a connection. Three kinds of file pass through here:
+//   the page      fresh whenever it can be had; otherwise (or when asked with ?saved) the copy
+//                 the page put by itself once its whole build was on the device
+//   e/<hash>/...  the engine, named by what it holds: fetched once, kept, never looked at again
+//   the rest      small pictures: the kept copy at once, refreshed behind it
+// pck/ (the pack's bundles) is the page's own business and passes straight through.
+// Other sites live on this origin, so only caches this game named are ever touched.
+const CACHE = 'last-omen-2';
+const NOT_YET = '<!doctype html><meta name="viewport" content="width=device-width">' +
+	'<body style="background:#000;color:#888;font:16px system-ui;text-align:center;' +
+	'margin:40vh 24px 0">Last Omen needs a connection to finish downloading.</body>';
+caches.delete('last-omen-1');   // the worker before this one kept its files there
 
 self.addEventListener('install', () => self.skipWaiting());
-self.addEventListener('activate', (e) => e.waitUntil((async () => {
-	const c = await caches.open(CACHE);   // the one-file pack of earlier builds is dead weight
-	for (const k of await c.keys()) {
-		if (leaf(k.url) === 'index.pck.enc') { await c.delete(k); }
-	}
-	await self.clients.claim();
-})()));
+self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
 
-async function page(req) {
-	const c = await caches.open(CACHE);
-	try {
-		const r = await fetch(req, { cache: 'no-store' });
-		if (r.ok) { c.put('index.html', r.clone()); }
-		return r;
-	} catch (e) {
-		return (await c.match('index.html')) || Response.error();
+async function page(u) {
+	const saved = async () => (await caches.open(CACHE)).match('index.html');
+	const live = () => fetch(u.href, { cache: 'no-store' });
+	if (u.searchParams.has('saved')) { return (await saved()) || live(); }
+	try { return await live(); } catch (e) {
+		return (await saved()) || new Response(NOT_YET, { headers: { 'content-type': 'text/html' } });
 	}
 }
 
-async function asset(req) {
+async function kept(e, u, refresh) {
 	const c = await caches.open(CACHE);
-	const key = leaf(req.url);
+	const key = u.origin + u.pathname;
 	const hit = await c.match(key);
-	const fresh = fetch(req).then((r) => {
-		if (r.ok && r.status === 200) { c.put(key, r.clone()); }
+	if (hit && !refresh) { return hit; }
+	const fresh = fetch(e.request).then((r) => {
+		if (r.status === 200) { e.waitUntil(c.put(key, r.clone())); }
 		return r;
 	});
-	if (hit) { fresh.catch(() => {}); return hit; }
+	if (hit) { e.waitUntil(fresh.catch(() => {})); return hit; }
 	return fresh;
 }
 
 self.addEventListener('fetch', (e) => {
 	const u = new URL(e.request.url);
 	if (e.request.method !== 'GET' || u.origin !== self.location.origin) { return; }
-	const name = leaf(e.request.url);
-	if (name === 'sw.js' || u.pathname.indexOf('/pck/') >= 0) { return; }
+	const name = u.pathname.split('/').pop();
+	if (name === 'sw.js' || u.pathname.includes('/pck/')) { return; }
 	if (name === 'version.json') {
 		e.respondWith(fetch(e.request).catch(() => new Response('{}',
 			{ headers: { 'content-type': 'application/json' } })));
-	} else if (name === 'index.html') {
-		e.respondWith(page(e.request));
+	} else if (name === '' || name === 'index.html') {
+		e.respondWith(page(u));
 	} else {
-		e.respondWith(asset(e.request));
+		e.respondWith(kept(e, u, !u.pathname.includes('/e/')));
 	}
 });

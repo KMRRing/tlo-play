@@ -76,6 +76,16 @@ body {
 	margin: 0 auto;
 }
 
+#status-note {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: calc(10% - 1.6rem);
+	text-align: center;
+	color: #9a9a9a;
+	font: 0.8rem system-ui, sans-serif;
+}
+
 #status-notice {
 	background-color: #5b3943;
 	border-radius: 0.5rem;
@@ -111,19 +121,25 @@ body {
 		<div id="status">
 			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
 			<progress id="status-progress"></progress>
+			<div id="status-note"></div>
 			<div id="status-notice"></div>
 		</div>
 
-		<script src="index.js"></script>
+		<script src="e/a089dfaa98a4ed84/index.js"></script>
 		<script>
+// Written by tools/web/publish.py in the game repo: what this build is made of.
+const BUILD = {"v":"1125.2216+ffe8f09","engine":"a089dfaa98a4ed84","wasm":37695054,"head":112,"pack":[["a3132252192483261b96ced5",1675462],["685f54c1be5269fed6b7b245",151233],["13c07d2e0f795a066f55c575",145819],["2be7e121db6c0084754d1d28",155841],["76acd6db4ab3bef519a6780d",155171],["14ece722c238a799d816a283",155026],["26fdb4c2136557116ff94499",154717],["13673725721c6a4b91173460",144090],["ee6f27c47fd4c4b9f841e76a",163947],["6f9a56b98d547efb77010f6e",155281],["99ca5ac0f9602e8d90bbcc8f",151264],["92193d759e59947d0c4753a3",163515],["18caa30f2d55831dfa45d4aa",143503],["7bb5d906abc3092df6255566",151859],["de21a9ed63358983ed9952fa",151460],["b16af8985e58a7fbd0c2494c",151906],["3600a9cdef2ef94b9fc1a189",156084],["f784853b54887a9300c0a1b5",151850],["420327dc6bd9ba5118633b43",152521],["8dd70c0c67dc9027c0877e06",310941],["48a0ed3296331a4c87110065",420589],["dc4fb81870617073d6c3f55f",320029],["5d496a3e8bbe3d856fb5c149",277357],["d5df9a0f06d4690c5d830c79",325853],["1284284a11de96af3baa56a4",302749],["330ee6e570294d37aae4a5ff",323405],["8b87221dc42227bc48d533c2",325261],["862094da3fcdb1df9dbc1323",336893],["fa21259cfb3c924163d0791b",349901],["cc916d25ea25ecccac130baa",285341],["55e90f5f17af46510324fb73",246957],["c7659b4d480cc81f508ab571",203261],["6979f16e853ed6e51a8ee163",309965],["4377054785f9ddfd57e7b5c2",308733],["de8c2eb72ce778050448d7d0",324621],["1570dc04dff00f629213fca7",288317],["ddd80185c077938563e3f9b3",363389],["b1a8e69ff7016bd6b376a785",365341],["b350db446c821ce8f3c5144c",209517],["54de999e549733f46303cc34",267293],["3771f8715889347f874bcfbf",303661],["f479d902cac1841c5fb29673",305469],["3e4b98af2a7eec66537848e5",318205],["0497607e33277a6d9baee178",329005],["3028386adf81de2c188e4929",325533],["217e1abff1af3bd19a0f01a1",321373],["87119c5df3ff32580af81a5d",318285],["f867050658d159d099b64a9a",326429],["01184dfddb80eeeb785cd928",301373],["cdf8108cbb360ed81d57af22",280621],["fe4ca9219a8efca7eb4ca6d5",289917],["0edae8cfcb33f30016e10b2b",349709],["2b3b5a784cc209e4f5e7fe73",278845],["8707f655d6579626ad15c813",351421],["8860bf93d1c3d864e2f57ad2",343725],["c787225e56a5c2d863d4685f",336205],["720a8fc47fee5fc66314f54c",1667245],["99e4c48dfaa74c750e72d812",251741],["fa69be606f9867774c92d0b2",338973],["365b40f6402e83bbaed3b335",337805],["98c7494704168de6c9958f78",339789],["5cc46e8d28daa86a32b7ca8b",357981],["f25e07d11398ff831939e22a",229581],["e05bc56e763ab21388bafb7d",260173],["dc0638d4a2fe36e357da9da8",311741],["503bc306145500ed3417ebc9",290957],["cdd2db84c1a543c03af464bf",325933],["dbc18c8b75bcfa15f335f0c8",389197],["edbff6c2fd2c40dd52c3248b",341053],["d76f563e7b7586101db1b64f",315261],["bb2898e12366bd3d95d04103",292317],["40a3fe84dab46c2642c0ecbe",244541],["f7c98a5e5aa3a30b6b899d3e",297517],["60bcda47f11f1edb4f075361",326093],["7dd74ee08247554954540f38",298157],["6fc8b0ebd4b9db45f5777ac3",306141],["a798f5431c788b02ee7c98cd",307053],["e0eb68cff8a3c5416b5b0131",328861],["ce8c09df3c23ebaf8aed9b31",339325],["6c1809bc576dd61baf223d19",350557],["2001e3bd5ae232e6f34536d8",348205],["0fa99d21a9cefb42cf3f9b87",357389],["5853408c863aefd7cc140883",301357],["0096b9642652d671315a758d",331869],["057286a3e3797da3fbc3f448",415277],["59a6745e2cbd63138d177e43",333389],["60626e878d0f7a9e75cbce30",347165],["25b8c3399dea54df5c8b8a38",335309],["d00ecba6879496c59a03e189",324621],["5a228c805038be9a6878e64b",337405],["3ac9180bc0b936319e8d0035",331325],["ec119f90b6d51b65a45af850",365437],["c6486e44932204c4715a45d6",354221],["ede1d4749dd2d09d47cdd9a8",456669],["69ac0195cebd180d56db7df4",307933],["4386d67e71528a28628d2d1d",343501],["4b4d2c6e193c9e739592cb67",348237],["5d516a0ecfe8792e899f8d28",345149],["75900da0d6374304fae9370f",332573],["68f6c921e09e911965d9770b",352845],["f8b75f2cd9592e23b563617f",350701],["8115b061d2d76bd5b54312a7",337069],["441771b899d3463488fb3c83",312317],["ad260e0a4bcb904211e92ff2",336781],["6fa549402b5ba036e01e4916",340077],["ac78a0623f82a6d968e5e283",349485],["5bfad63448484ab771fa5d42",389021],["462d353963de0a381f7f6948",277341],["e49e2edd8ac6f0c0fc9c7756",319965],["cbaa4290944e4aaa6910331e",351981],["a3cb9194435967db06e657c2",341101],["dca5da3091abd4848c006f0a",349549],["0c6976ffdbf50b9f6285b681",374461],["d62d9858163d2f63f9f06d0b",372189],["46f28d1fa9466cec87705ae4",388317],["0d19b165bcbf82dc3921010f",364157],["51d898d9aad1269e801d0845",340605],["10c4b72a3c560ae71246e447",346893],["758da305829db289969e5ae3",411581],["e5e3a4a268fe5fdc83b9b5af",319965],["3bee049933c164b45d04770b",1335453],["a033e7f53ab997215c39633b",346749],["f1cc6cbabd2a7989b7c7b293",334733],["2b49dd163d20b72663a4de5b",374189],["f65771609f012a3646907ab7",335757],["f787aa76c71a62824907c792",319965],["04992551439ab03afcb8d36e",323869],["c397372f47b332317c40e924",342605],["d7f4575af73addec78db8b2b",354941],["9e9097db47eebe262c9679be",455101],["5d8c718e200a185f659bdbfc",405053],["97201e7e021ba021ab15285f",314605],["6b0432d24d3702eeb8c6f748",374349],["25925a1a4c216616debe17b7",341101],["627a82263fd16c2e096fd14f",320429],["93b89d2067d36584fe61aa9e",279901],["6a8dcbaa2dd560c165a35f5f",364941],["bbfbe6a29cd8e5a6218d3ddf",345613],["e6a0ac741a2fdc58c16da448",349421],["d0db377b3408c6ba43dbc6ed",345709],["439e8e3b9781adde65deef90",354893],["a17f5e1f7daae9a6a922c9f3",331549],["de9b683b9b3c6ed7f2cc5b23",331789],["d477503817cc4a62f82b293e",452045],["84cbfc3244f5779d98c15eac",376077],["cc8202e332ea089856b90d18",334141],["7c03dd217d3e934636a5fc2c",319341],["fffd7ea5d2edb0115d73965b",387213],["2a35731a52e32d8a8f2f9449",316749],["d7559896fe5fc6d5cb3ba895",353021],["07638ffb1246a9088281602d",310349],["8a542e3ebffbbd030adcbbfa",408157],["2a724fa637b85135089ba22c",353581],["afcdb4c8405b873934677df6",313101],["541f63b602758038fcc662ac",341197],["fa98af88edca5fb0c5283bbc",356493],["f0e2f6903ec6f04a61d4374a",372189],["dafeb45cf1fee264ad3bfb88",357741],["edb6fcc2a813abfde101bc6b",333933],["627358f36cbac62e952b7819",306061],["2196efe970a8880c0ffcea4b",340509],["4f026def6a25e0991dc9939c",384413],["8899c6be7105911e7fbb38a0",327293],["4b13a9531cc1e669f5510e84",316845],["94436d20acd19c5c6c83e622",342285],["99e5b7eff04c738b415d7ea7",370829],["0d6c26936ba271689117b2e1",335965],["f02f548bebd4577aaac65a62",317133],["e1ceed7a7f5ad9a19bbb2927",281309],["3b7ccc74efe509f5305583ca",344493],["b5b67d44142172321b9cf3ce",1004013],["a12cf00155800f832fd3f060",730141],["cbd032756bacfff48c3586ca",1108589],["b8ffbcfb079304a67a5157f0",1530701],["15c3ec1d4297cdfd62dce574",1657309],["497612825db9880fdddb34d3",1195501],["c5b326cd8d713cc51440efac",1135309],["219054a4ed49a5b29adb1e36",1455261],["5899f7456396357385b56f27",1046509],["e536ec368def697711c1e0f0",952589],["27a70a69e462003e860928ff",2144237],["2d4f7f6cfd609926441c0d57",1319501],["8040716910cd64a3cfa82563",1184461],["30c5950866fb7717190c1866",1152573],["43e6e6c15e109ef706e56cee",965421],["d2418fe445c11c10881de872",1087933]]};
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":1597940,"index.wasm":37695054},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
+GODOT_CONFIG.executable = 'e/' + BUILD.engine + '/index';
+GODOT_CONFIG.fileSizes = { [GODOT_CONFIG.executable + '.wasm']: BUILD.wasm };
 const engine = new Engine(GODOT_CONFIG);
 
 (function () {
 	const statusOverlay = document.getElementById('status');
 	const statusProgress = document.getElementById('status-progress');
 	const statusNotice = document.getElementById('status-notice');
+	const statusNote = document.getElementById('status-note');
 
 	let initializing = true;
 	let statusMode = '';
@@ -167,6 +183,295 @@ const engine = new Engine(GODOT_CONFIG);
 		initializing = false;
 	}
 
+	// Offline play. sw.js hands out the saved page and the engine; the pack's bundles are kept
+	// here. Other sites share this origin's storage, so every name below is this game's own.
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('sw.js').catch(() => {});
+	}
+	const PACK = 'last-omen-pack';   // the pack's bundles as they were fetched (still encrypted)
+	const SHELL = 'last-omen-2';     // sw.js's shelf: the saved page, the engine
+	// ?saved: the build that is whole on this device, opened because the newest could not be
+	// fetched. It plays as it is and looks for nothing newer; the next launch tries again.
+	const SAVED = new URLSearchParams(location.search).has('saved');
+	const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+	const leaf = (url) => new URL(url, location.href).pathname.split('/').pop();
+
+	async function newerBuild() {
+		if (SAVED) { return; }
+		try {
+			const r = await fetch('version.json?ts=' + Date.now(), { 'cache': 'no-store' });
+			const d = await r.json();
+			if (d && d.v && d.v !== BUILD.v) {
+				location.replace(location.pathname + '?v=' + encodeURIComponent(d.v) + location.hash);
+			}
+		} catch (e) {}
+	}
+	setInterval(newerBuild, 60000);
+	document.addEventListener('visibilitychange', () => {
+		if (!document.hidden) { newerBuild(); }
+	});
+
+	// Cache Storage, or the same calls over a Map where a browser refuses it (some private tabs):
+	// the game still plays there, it just keeps nothing.
+	function memoryShelf() {
+		const kept = new Map();
+		const at = (u) => new URL(u.url || u, location.href).href;
+		return {
+			'match': async (u) => (kept.has(at(u)) ? new Response(kept.get(at(u))) : undefined),
+			'put': async (u, r) => { kept.set(at(u), await r.arrayBuffer()); },
+			'delete': async (u) => kept.delete(at(u)),
+			'keys': async () => [...kept.keys()].map((url) => ({ 'url': url })),
+		};
+	}
+
+	async function openShell() {
+		try { return await caches.open(SHELL); } catch (e) { return null; }
+	}
+
+	// Run `work` over `items`, `width` at a time; the first failure stops the rest and is thrown.
+	async function inParallel(items, width, work) {
+		let next = 0;
+		let failed = null;
+		const lane = async () => {
+			while (next < items.length && !failed) {
+				const i = next++;
+				try { await work(items[i], i); } catch (e) { failed = failed || e; }
+			}
+		};
+		await Promise.all(Array.from({ 'length': width }, lane));
+		if (failed) { throw failed; }
+	}
+
+	// The whole pack as byte pieces, fetching only the bundles this device lacks.
+	async function gatherPack(key) {
+		const shell = await openShell();
+		let pack;
+		try { pack = await caches.open(PACK); } catch (e) { pack = memoryShelf(); }
+		const parts = BUILD.pack.map(([name, bytes]) => ({ 'url': 'pck/' + name + '.enc', 'bytes': bytes }));
+		const engineFiles = ['.js', '.wasm', '.audio.worklet.js', '.audio.position.worklet.js']
+			.map((ext) => GODOT_CONFIG.executable + ext);
+		const saved = await savedBuild(shell);
+
+		// Keep what the given builds are made of; everything else of ours goes.
+		const prune = async (builds) => {
+			const bundles = new Set();
+			const engines = new Set();
+			for (const b of builds.filter(Boolean)) {
+				b.pack.forEach(([name]) => bundles.add(name + '.enc'));
+				engines.add(b.engine);
+			}
+			for (const r of await pack.keys()) {
+				if (!bundles.has(leaf(r.url))) { await pack.delete(r); }
+			}
+			for (const r of (shell ? await shell.keys() : [])) {
+				const m = new URL(r.url).pathname.match(/\/e\/([^/]+)\//);
+				if (m && !engines.has(m[1])) { await shell.delete(r); }
+			}
+		};
+		if (!SAVED) { await prune([BUILD, saved]); }
+
+		const have = new Set((await pack.keys()).map((r) => leaf(r.url)));
+		const lacking = parts.filter((p) => !have.has(leaf(p.url)));
+		const engineLacking = [];
+		for (const url of (shell ? engineFiles : [])) {
+			if (!(await shell.match(url))) { engineLacking.push(url); }
+		}
+		const wasmLacking = engineLacking.some((url) => url.endsWith('.wasm'));
+		const total = lacking.reduce((n, p) => n + p.bytes, 0) + (wasmLacking ? BUILD.wasm : 0);
+		let done = 0;
+		const arrived = (bytes) => {
+			done += bytes;
+			statusProgress.max = total;
+			statusProgress.value = Math.min(done, total);
+			statusNote.textContent = 'Downloading ' + Math.round(done / 1e6) + ' of ' +
+				Math.round(total / 1e6) + ' MB';
+		};
+		if (total > 0) { arrived(0); }
+
+		const fetchBundle = async (part) => {
+			let last = null;
+			for (let a = 0; a < 5; a++) {
+				if (navigator.onLine === false) { throw last || new Error('no connection'); }
+				try {
+					const r = await fetch(part.url + (a ? '?r=' + a : ''), a ? { 'cache': 'reload' } : {});
+					if (r.status === 404) { throw Object.assign(new Error('withdrawn'), { 'gone': true }); }
+					if (!r.ok) { throw new Error('http ' + r.status); }
+					const buf = await r.arrayBuffer();
+					if (buf.byteLength !== part.bytes) { throw new Error('cut short'); }
+					await pack.put(part.url, new Response(buf));
+					return;
+				} catch (e) {
+					if (e.gone) { throw e; }
+					last = e;
+					await sleep(700 * (a + 1));
+				}
+			}
+			throw last;
+		};
+		const gunzip = async (bytes) => new Uint8Array(await new Response(new Blob([bytes])
+			.stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());
+		// A kept bundle, decrypted and unpacked. Its first byte says whether it travelled gzipped.
+		const openBundle = async (part) => {
+			const buf = new Uint8Array(await (await pack.match(part.url)).arrayBuffer());
+			if (buf.length !== part.bytes) { throw new Error('damaged'); }
+			const plain = new Uint8Array(await crypto.subtle.decrypt(
+				{ 'name': 'AES-GCM', 'iv': buf.subarray(0, 12) }, key, buf.subarray(12)));
+			return plain[0] ? gunzip(plain.subarray(1)) : plain.subarray(1);
+		};
+
+		// The index first: it is small, and it is where a wrong key shows.
+		if (lacking.includes(parts[0])) {
+			await fetchBundle(parts[0]);
+			arrived(parts[0].bytes);
+		}
+		let index;
+		try { index = await openBundle(parts[0]); } catch (e) {
+			if (e && e.name === 'OperationError') { e.wrongKey = true; }
+			else { await pack.delete(parts[0].url); }
+			throw e;
+		}
+		await inParallel(lacking.filter((p) => p !== parts[0]), 4, async (part) => {
+			await fetchBundle(part);
+			arrived(part.bytes);
+		});
+		// The engine, put by under its own address for sw.js to hand back.
+		for (const url of engineLacking) {
+			const r = await fetch(url);
+			if (!r.ok) { throw new Error('http ' + r.status); }
+			const copy = r.clone();
+			if (url.endsWith('.wasm')) {   // count it in as it arrives: it is the one big file
+				const reader = r.body.getReader();
+				for (;;) {
+					const step = await reader.read();
+					if (step.done) { break; }
+					arrived(step.value.length);
+				}
+			}
+			await shell.put(url, copy);
+		}
+
+		statusNote.textContent = '';
+		statusProgress.removeAttribute('value');
+		const rest = new Array(parts.length - 1);
+		await inParallel(parts.slice(1), 4, async (part, i) => {
+			try { rest[i] = await openBundle(part); } catch (e) {   // a spoiled copy: fetch it once more
+				await pack.delete(part.url);
+				await fetchBundle(part);
+				rest[i] = await openBundle(part);
+			}
+		});
+
+		if (!SAVED && shell) {
+			try {
+				await prune([BUILD]);
+				if (!saved || saved.v !== BUILD.v) { await keepPage(shell); }
+				if (navigator.storage && navigator.storage.persist) { navigator.storage.persist(); }
+			} catch (e) {}
+		}
+		return [index.subarray(0, BUILD.head), ...rest, index.subarray(BUILD.head)];
+	}
+
+	// The build that is whole on this device (its BUILD line), or null.
+	async function savedBuild(shell) {
+		try { return await (await shell.match('saved.json')).json(); } catch (e) { return null; }
+	}
+
+	// This build is whole on the device: put its page by for sw.js to serve without a connection.
+	async function keepPage(shell) {
+		const r = await fetch(location.pathname, { 'cache': 'no-store' });
+		const mine = '"v":' + JSON.stringify(BUILD.v);
+		if (!r.ok || (await r.clone().text()).indexOf(mine) < 0) { return; }
+		await shell.put('index.html', r);
+		await shell.put('saved.json', new Response(JSON.stringify(BUILD)));
+		for (const picture of ['index.png', 'index.icon.png', 'index.apple-touch-icon.png']) {
+			if (!(await shell.match(picture))) { await shell.add(picture).catch(() => {}); }
+		}
+	}
+
+	async function unlockThenStart() {
+		// "nothing here" is only for a visitor without the key. A download that broke on the
+		// way (a slow or dropped connection, a phone short of memory) says so and offers a
+		// retry.
+		const say = (msg, retry) => {
+			document.body.innerHTML = '<div style="color:#888;font:16px system-ui;' +
+				'text-align:center;margin:40vh 24px 0">' + msg + '</div>';
+			if (retry) {
+				document.body.onclick = () => location.replace(location.pathname + location.hash);
+			}
+		};
+		const bad = () => say('nothing here', false);
+		// A home-screen copy keeps its own storage, so the key a browser tab saved is not
+		// there: it asks for the play link once and remembers it.
+		const ask = () => {
+			say('Paste your play link to finish installing.<br><br>' +
+				'<input id="lo-k" style="width:80%;font:16px system-ui;padding:8px" ' +
+				'placeholder="https://...#k=...">', false);
+			document.getElementById('lo-k').addEventListener('change', (ev) => {
+				const m = ev.target.value.match(/(?:k=)?([A-Za-z0-9_-]{20,})\s*$/);
+				if (m) { try { localStorage.setItem('lo_k', m[1]); } catch (e) {} }
+				location.reload();
+			});
+		};
+		const installed = window.navigator.standalone === true ||
+			window.matchMedia('(display-mode: standalone)').matches;
+		let k = (location.hash.match(/k=([A-Za-z0-9_-]+)/) || [])[1];
+		if (k) { try { localStorage.setItem('lo_k', k); } catch (e) {} }
+		else { try { k = localStorage.getItem('lo_k'); } catch (e) {} }
+		if (!k) { return installed ? ask() : bad(); }
+		if (typeof DecompressionStream === 'undefined') {
+			return say('This browser is too old for the game (an iPhone needs iOS 16.4 or later).', false);
+		}
+		let key;
+		try {
+			const pad = '='.repeat((4 - (k.length % 4)) % 4);
+			const raw = Uint8Array.from(atob(
+				k.replace(/-/g, '+').replace(/_/g, '/') + pad),
+				(c) => c.charCodeAt(0));
+			key = await crypto.subtle.importKey('raw', raw,
+				'AES-GCM', false, ['decrypt']);
+		} catch (e) { return bad(); }
+
+		let pieces;
+		try { pieces = await gatherPack(key); } catch (e) {
+			if (e && e.wrongKey) { return bad(); }
+			let once = false;
+			try {
+				once = !sessionStorage.getItem('lo_gone');
+				sessionStorage.setItem('lo_gone', '1');
+			} catch (x) {}
+			// A bundle the site no longer has: a newer build replaced this one mid-download.
+			if (e && e.gone && once) { return location.reload(); }
+			const saved = SAVED ? null : await savedBuild(await openShell());
+			if (saved && saved.v !== BUILD.v) {   // the update can wait: play what is here
+				return location.replace(location.pathname + '?saved=1' + location.hash);
+			}
+			return say('The game did not finish downloading (' +
+				((e && (e.message || e.name)) || 'unknown') +
+				'). What arrived is kept.<br><br>Tap to carry on.', true);
+		}
+		try { sessionStorage.removeItem('lo_gone'); } catch (e) {}
+		// The engine asks sw.js for its files; on a first visit give the worker a moment to take over.
+		if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
+			await Promise.race([sleep(3000), new Promise((r) => {
+				navigator.serviceWorker.addEventListener('controllerchange', r, { 'once': true });
+			})]);
+		}
+		engine.startGame({
+			'mainPack': URL.createObjectURL(new Blob(pieces)),
+			'onProgress': function (current, total) {
+				if (current > 0 && total > 0) {
+					statusProgress.value = current;
+					statusProgress.max = total;
+				} else {
+					statusProgress.removeAttribute('value');
+					statusProgress.removeAttribute('max');
+				}
+			},
+		}).then(() => {
+			setStatusMode('hidden');
+		}, displayFailureNotice);
+	}
+
 	const missing = Engine.getMissingFeatures({
 		threads: GODOT_THREADS_ENABLED,
 	});
@@ -205,135 +510,6 @@ const engine = new Engine(GODOT_CONFIG);
 	} else {
 		setStatusMode('progress');
 		unlockThenStart();
-	}
-	if ('serviceWorker' in navigator) {   // offline cache: see sw.js
-		navigator.serviceWorker.register('sw.js').catch(() => {});
-	}
-	const PACK_PARTS = 14;
-	const BUILD_V = '1125.2139+14b07c1';
-async function _updCheck() {
-	try {
-		const r = await fetch('version.json?ts=' + Date.now(),
-			{ cache: 'no-store' });
-		const d = await r.json();
-		if (d && d.v && d.v !== BUILD_V) {
-			location.replace(location.pathname + '?v=' +
-				encodeURIComponent(d.v) + location.hash);
-		}
-	} catch (e) {}
-}
-setInterval(_updCheck, 60000);
-document.addEventListener('visibilitychange', () => {
-	if (!document.hidden) { _updCheck(); }
-});
-	async function unlockThenStart() {
-		// "nothing here" is only for a visitor without the key. A download that broke on the
-		// way (a slow or dropped connection, a phone short of memory) says so and offers a
-		// retry - it used to show the same two words and leave no way forward.
-		const say = (msg, retry) => {
-			document.body.innerHTML = '<div style="color:#888;font:16px system-ui;' +
-				'text-align:center;margin:40vh 24px 0">' + msg + '</div>';
-			if (retry) { document.body.onclick = () => location.reload(); }
-		};
-		const bad = () => say('nothing here', false);
-		// A home-screen copy keeps its own storage, so the key a browser tab saved is not
-		// there: it asks for the play link once and remembers it.
-		const ask = () => {
-			say('Paste your play link to finish installing.<br><br>' +
-				'<input id="lo-k" style="width:80%;font:16px system-ui;padding:8px" ' +
-				'placeholder="https://...#k=...">', false);
-			document.getElementById('lo-k').addEventListener('change', (ev) => {
-				const m = ev.target.value.match(/(?:k=)?([A-Za-z0-9_-]{20,})\s*$/);
-				if (m) { try { localStorage.setItem('lo_k', m[1]); } catch (e) {} }
-				location.reload();
-			});
-		};
-		const installed = window.navigator.standalone === true ||
-			window.matchMedia('(display-mode: standalone)').matches;
-		let k = (location.hash.match(/k=([A-Za-z0-9_-]+)/) || [])[1];
-		if (k) { try { localStorage.setItem('lo_k', k); } catch (e) {} }
-		else { try { k = localStorage.getItem('lo_k'); } catch (e) {} }
-		if (!k) { return installed ? ask() : bad(); }
-		let key;
-		try {
-			const pad = '='.repeat((4 - (k.length % 4)) % 4);
-			const raw = Uint8Array.from(atob(
-				k.replace(/-/g, '+').replace(/_/g, '/') + pad),
-				(c) => c.charCodeAt(0));
-			key = await crypto.subtle.importKey('raw', raw,
-				'AES-GCM', false, ['decrypt']);
-		} catch (e) { return bad(); }
-		// The pack arrives in PACK_PARTS encrypted parts. Each is fetched with its own retries
-		// and kept on the phone the moment it lands, so a dropped connection costs one part
-		// and a reload carries on from where the last one stopped.
-		const PART_BYTES = 6 * 1024 * 1024 + 28;
-		const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-		let store = null;
-		try {
-			store = await caches.open('last-omen-pack');
-			for (const old of await store.keys()) {
-				if (old.url.indexOf('v=' + encodeURIComponent(BUILD_V)) < 0 &&
-						old.url.indexOf('v=' + BUILD_V) < 0) { await store.delete(old); }
-			}
-		} catch (e) { store = null; }
-		const part = async (i) => {
-			const url = 'pck/' + String(i).padStart(2, '0') + '.enc?v=' + BUILD_V;
-			let last = null;
-			for (let a = 0; a < 6; a++) {
-				try {
-					let r = store ? await store.match(url) : null;
-					const fresh = !r;
-					if (fresh) {
-						r = await fetch(url + (a ? '&r=' + a : ''), a ? { cache: 'reload' } : {});
-						if (!r.ok) { throw new Error('http ' + r.status); }
-					}
-					const buf = new Uint8Array(await r.arrayBuffer());
-					if (i < PACK_PARTS - 1 && buf.length !== PART_BYTES) {
-						throw new Error('part ' + (i + 1) + ' cut short');
-					}
-					const out = await crypto.subtle.decrypt(
-						{ 'name': 'AES-GCM', 'iv': buf.subarray(0, 12) }, key, buf.subarray(12));
-					if (fresh && store) {
-						try { await store.put(url, new Response(buf)); } catch (e) {}
-					}
-					return out;
-				} catch (e) {
-					if (e && e.name === 'OperationError') { e.wrongKey = true; throw e; }
-					last = e;
-					if (store) { try { await store.delete(url); } catch (x) {} }
-					await sleep(700 * (a + 1));
-				}
-			}
-			throw last;
-		};
-		const pieces = [];
-		try {
-			statusProgress.max = PACK_PARTS;
-			for (let i = 0; i < PACK_PARTS; i++) {
-				pieces.push(await part(i));
-				statusProgress.value = i + 1;
-			}
-		} catch (e) {
-			if (e && e.wrongKey) { return bad(); }
-			return say('The game did not finish downloading (' +
-				((e && (e.message || e.name)) || 'unknown') + '; ' + pieces.length + ' of ' +
-				PACK_PARTS + ' parts are saved).<br><br>Tap to carry on.', true);
-		}
-		const plain = new Blob(pieces);
-		engine.startGame({
-			'mainPack': URL.createObjectURL(plain),
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					statusProgress.value = current;
-					statusProgress.max = total;
-				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
-				}
-			},
-		}).then(() => {
-			setStatusMode('hidden');
-		}, displayFailureNotice);
 	}
 }());
 		</script>

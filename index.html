@@ -209,8 +209,8 @@ const engine = new Engine(GODOT_CONFIG);
 	if ('serviceWorker' in navigator) {   // offline cache: see sw.js
 		navigator.serviceWorker.register('sw.js').catch(() => {});
 	}
-	const PACK_PARTS = 10;
-	const BUILD_V = '1125.1825+c39a5ed';
+	const PACK_PARTS = 14;
+	const BUILD_V = '1125.2139+14b07c1';
 async function _updCheck() {
 	try {
 		const r = await fetch('version.json?ts=' + Date.now(),
